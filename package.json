@@ -1,0 +1,7 @@
+{
+  "name": "CasperjsWS",
+  "description": "Workshop introduction to Casper.js",
+  "dependencies": {
+    "requirejs": "latest"
+  }
+}
