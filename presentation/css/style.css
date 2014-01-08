@@ -1,0 +1,23 @@
+.footer {
+	background-image: -webkit-linear-gradient(top, rgb(54, 24, 95) 33%, rgb(40, 18, 71));
+	height: 65px;
+	top:92%;
+	position: relative;
+}
+
+section.codeblock {
+    top: -270px;
+}
+
+p.output {
+    margin-top: 20px;
+}
+
+code.cs {
+    font-size: 27px;
+    height:300px;
+}
+
+pre code.xml .javascript {
+    opacity: 1.0;
+}
