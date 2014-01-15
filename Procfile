@@ -1,0 +1,1 @@
+worker: node test_funcs_node.js
