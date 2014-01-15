@@ -3,5 +3,12 @@
   "description": "Workshop introduction to Casper.js",
   "dependencies": {
     "requirejs": "latest"
+  },
+  "scripts": {
+    "start": "node test_funcs_node",
+    "test": "grunt validate --verbose"
+  },
+  "engines": {
+    "node": "~0.10.0"
   }
 }
