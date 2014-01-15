@@ -10,5 +10,23 @@
   },
   "engines": {
     "node": "~0.10.0"
-  }
+  },
+  "version": "0.0.0",
+  "main": "test_funcs_node.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/willeeklund/CasperjsWS.git"
+  },
+  "keywords": [
+    "casperjs",
+    "javascript",
+    "testing"
+  ],
+  "author": "Wilhelm Eklund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willeeklund/CasperjsWS/issues"
+  },
+  "homepage": "https://github.com/willeeklund/CasperjsWS"
 }
