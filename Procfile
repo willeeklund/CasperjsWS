@@ -1,1 +1,1 @@
-worker: node test_funcs_node.js
+worker: casperjs test test_funcs_casper.js
