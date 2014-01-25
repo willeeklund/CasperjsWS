@@ -2,7 +2,9 @@
   "name": "CasperjsWS",
   "description": "Workshop introduction to Casper.js",
   "dependencies": {
-    "requirejs": "latest"
+    "requirejs": "latest",
+    "casperjs": "~1.1.0-beta3",
+    "spooky": "~0.2.4"
   },
   "scripts": {
     "start": "node test_funcs_node",
