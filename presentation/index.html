@@ -176,6 +176,17 @@ casper.test.begin('Test suite for aftonbladet.se', function suite(test) {
   });
       </code></pre>
     </section>
+
+    <section>
+      <h2>Take screenshots</h2>
+      <pre><code>
+  casper.then(function () {
+    casper.capture('screenshots/abse_frontpage.png');
+    casper.captureSelector('screenshots/abse_navigation.png', '.abSiteNav');
+  });
+      </code></pre>
+    </section>
+
   </section>
 
 </div>
