@@ -4,8 +4,8 @@ var config = require("./config.js");
 casper.test.begin("Sign up me for the bostadskö", function (test) {
   var startUrl = "http://www.johnmattson.se/login/?returnurl=%2flagenhetsformedling%2flagenheter";
   casper.start(startUrl, function () {
-    casper.capture("bostad_login.png");
-    this.echo("Login page");
+    casper.capture("screenshots/bostad_login.png");
+    test.info("Login page");
     test.assertVisible("input[id$='User']", "Visible input for username");
     test.assertVisible("input[id$='Password']", "Visible input for password");
     casper.fillSelectors('form', {
@@ -19,14 +19,14 @@ casper.test.begin("Sign up me for the bostadskö", function (test) {
   casper.waitFor(function check() {
     return this.getCurrentUrl() == listUrl;
   }, function then() {
-    this.echo("Logged in");
-    casper.capture("bostad_logged_in.png");
+    test.info("Logged in");
+    casper.capture("screenshots/bostad_logged_in.png");
     casper.click(".clickable");
   });
 
   var selector_address = "h1 span[id$='adress']";
   casper.waitUntilVisible(selector_address, function () {
-    casper.capture("bostad_item.png");
+    casper.captureSelector("screenshots/bostad_item.png", selector_address);
     var adress_name = casper.evaluate(function (selector_address) {
       return jQuery(selector_address).text();
     }, selector_address);
@@ -46,8 +46,14 @@ casper.test.begin("Sign up me for the bostadskö", function (test) {
   });
 
   casper.thenClick("a[id$=anmal]", function () {
-    console.log("anmal url", this.getCurrentUrl());
-    casper.capture("bostad_anmal_page.png");
+    test.info("Anmäl intresse url " + this.getCurrentUrl());
+    casper.capture("screenshots/bostad_anmal_page.png");
+    test.assertVisible("a[id$=Ja]", "Confirmation button visible.")
+  });
+
+  casper.thenClick("a[id$=Ja]", function () {
+    test.info("Confirmation url " + this.getCurrentUrl());
+    casper.capture("screenshots/bostad_confirm.png");
   });
 
   casper.run(function () {
