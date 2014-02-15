@@ -24,7 +24,7 @@
 		<div class="reveal">
 <style type="text/css">
 .present {
-	margin-top: -130px!important;
+	/*margin-top: -130px!important;*/
 }
 </style>
 <!-- Any section element inside of this container is displayed as a slide -->
@@ -70,37 +70,37 @@
       <h3>Demo</h3>
     </section>
   </section>
-  
+
   <section>
     <section>
       <h2>What is our current situation?</h2>
     </section>
   </section>
-  
+
   <section>
     <section>
       <h2>What is CasperJS?</h2>
     </section>
   </section>
-  
+
   <section>
     <section>
       <h2>What can you do with it?</h2>
     </section>
   </section>
-  
+
   <section>
     <section>
       <h2>Pros / cons</h2>
     </section>
   </section>
-  
+
   <section>
     <section>
       <h2>Other tools</h2>
     </section>
   </section>
-  
+
   <section>
     <section>
       <h2>Can you use it at your client?</h2>
@@ -110,16 +110,71 @@
 	  <h3>How can you implement automated testing at your client?</h3>
     </section>
   </section>
-  
+
   <section>
     <section>
       <h2>Code introduction & examples</h2>
     </section>
   </section>
-  
+
   <section>
     <section>
       <h2>Demos</h2>
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h2>CasperJS API</h2>
+    </section>
+
+    <section>
+      <h2>start, then & run</h2>
+      <pre><code>
+casper.test.begin("Test suite for aftonbladet.se", function suite(test) {
+  casper.start("http://www.aftonbladet.se", function () {
+    // Perform something at this page
+  });
+  casper.then(function () {
+    // Next step
+  });
+  casper.run(function () {
+    // Last part. This actually starts the scenario
+    test.done();
+  });
+});
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Add testing steps</h2>
+      <pre><code>
+casper.test.begin('Test suite for aftonbladet.se', function suite(test) {
+  casper.start('http://www.aftonbladet.se', function () {
+    test.assertUrlMatch(/^http:\/\/www\.aftonbladet\.se\/$/, 'Frontpage loaded');
+    test.assertVisible('.abSiteNav', 'Navigation element exists');
+  });
+  casper.then(function () {
+    test.assertSelectorHasText('.abSiteNav', 'Sport', 'Sport section in nav');
+  });
+  casper.run(function () {
+    test.done();
+  });
+});
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Evaluate code in loaded page</h2>
+      <pre><code>
+  casper.then(function () {
+    var nbrArticles = casper.evaluate(function () {
+      return document.querySelectorAll('.abBlock').length;
+    });
+    test.info('Number of articles: ' + nbrArticles);
+    test.assert(nbrArticles > 100, 'Hundreds of articles are shown');
+  });
+      </code></pre>
     </section>
   </section>
 

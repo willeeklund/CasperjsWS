@@ -46,7 +46,7 @@ casper.test.begin("Test suite for hemma.aftonbladet.se", 6, function suite(test)
       function () {
         return __utils__.findAll(".grid-view .cards .card").length >= 25;
       },
-      additionalCards + " more grid cards are added asynchronously, now there are at least " + 25 + " (some duplicates have not been shown twice)"
+      additionalCards + " more grid cards are added asynchronously"
     );
   });
 
