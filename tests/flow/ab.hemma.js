@@ -1,5 +1,5 @@
 // Hemma
-casper.test.begin("Test suite for hemma.aftonbladet.se", 7, function suite(test) {
+casper.test.begin("Test suite for hemma.aftonbladet.se", 6, function suite(test) {
   var additionalCards = 15,
       expectedCards = 17,
       i = 0,
@@ -27,13 +27,6 @@ casper.test.begin("Test suite for hemma.aftonbladet.se", 7, function suite(test)
       }, grid_card_selector),
       5,
       "5 of them are articles"
-    );
-    // ---
-    test.assertEval(
-      function () {
-        return __utils__.findAll(".grid-view .cards .card .card-type-bloggimport").length >= 7;
-      },
-      "At least 8 of them are imported blog posts"
     );
     // ---
     test.assertEquals(

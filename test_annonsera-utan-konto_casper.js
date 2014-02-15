@@ -4,47 +4,47 @@
 
 casper.test.begin("Annonsera utan konto fungerar", 57, function suite(test) {
 	casper.start("http://www.arbetsformedlingen.se/For-arbetsgivare/Annonsera/Annonsera-utan-konto.html", function() {
-		
+
 		this.echo("\n-------------------------------\n");
-				
+
 		echoText.call(this, "Kontrollerar om sidan existerar");
     });
-	
+
 	casper.then(function () {
 		controllingPageExist_Exists.call(this, test);
-		
+
 		this.capture('screenshots/annonsera1.png');
-		
+
 		echoTextAndSeparators.call(this, "Sidan existerar");
 		echoText.call(this, "Kontrollerar om sidans element existerar");
 	});
 
     casper.then(function () {
 		controllingElementsExist_Exists.call(this, test);
-		
+
 		echoTextAndSeparators.call(this, "Sidans element existerar");
 		echoText.call(this, "Fyller i fomruläret");
     });
-	
+
 	casper.then(function () {
 		fillFormCorrectly_OnlyMandatory_FilledCorrectly.call(this, test);
 		this.capture('screenshots/annonsera2.png');
 		echoTextAndSeparators.call(this, "Formuläret ifyllt");
 		echoText.call(this, "Klickar på knappen Fortsätt");
 	});
-	
-	casper.then(function() { 
+
+	casper.then(function() {
 		this.click('input[name$="btnFortsatt1"]');
-		
+
 		echoTextAndSeparators.call(this, "Formuläret skickades");
 	});
-	
-	casper.then(function() { 
+
+	casper.then(function() {
 		echoIfErrorMessage.call(this);
 		this.capture('screenshots/annonsera3.png');
 		test.assertTextExists("Granska, steg 2 av 3", "Vidare på Granska, steg 2 av 3\n");
 	});
-	
+
     casper.run(function() {
         test.done();
     });
@@ -63,7 +63,7 @@ function echoIfErrorMessage() {
 	var errorMessageExists = this.evaluate(function() {
 		return document.querySelector('div.errMsg') != undefined;
 	});
-	
+
 	if(errorMessageExists) {
 		this.echo("Formuläret hade fel:");
 		this.echo(this.fetchText('div.errMsg') + "\n");
@@ -84,7 +84,7 @@ function controllingElementsExist_Exists(test) {
 	test.assertExists('input[name$="btnFortsatt1"]', "");
 	test.assertExists('input[name$="btnRensa2"]', "");
 	test.assertExists('input[name$="btnFortsatt2"]', "");
-	
+
 	this.echo("\nInformation om företaget");
 	test.assertExists('input[name$="txtForetag"]', "");
 	test.assertExists('input[name$="txtOrgNr"]', "");
@@ -98,7 +98,7 @@ function controllingElementsExist_Exists(test) {
 	test.assertExists('input[name$="txtHemsida"]', "");
 	test.assertExists('input[name$="txtEpost"]', "");
 	test.assertExists('textarea[name$="txtForetagsbeskrivning"]', "");
-	
+
 	this.echo("\nInformation om ledig tjänst");
 	test.assertExists('input[name$="txtArbetsplats"]', "");
 	test.assertExists('input[name$="txtArbetsplatsPostnummer"]', "");
@@ -106,7 +106,7 @@ function controllingElementsExist_Exists(test) {
 	test.assertExists('input[name$="txtYrkesbenamning"]', "");
 	test.assertExists('textarea[name$="txtArbetsuppgifter"]', "");
 	test.assertExists('textarea[name$="txtKvalifikationer"]', "");
-	
+
 	this.echo("\nAnställningsvillkor");
 	test.assertExists('input[name$="txtTilltradesdatum"]', "");
 	test.assertExists('select[name$="ddAnstallningstyp"]', "");
@@ -117,37 +117,37 @@ function controllingElementsExist_Exists(test) {
 	test.assertExists('select[name$="ddLoneform"]', "");
 	test.assertExists('input[name$="txtLoneformOvrigt"]', "");
 	test.assertExists('textarea[name$="txtOvrigavillkor"]', "");
-	
+
 	this.echo("\nAnsökan");
 	test.assertExists('input[name$="txtAnsokanSenastDatum"]', "");
 	test.assertExists('input[name$="txtAnsokanReferensnummer"]', "");
 	test.assertExists('input[name$="cbxAnsokanSkriftlig"]', "");
 	test.assertExists('textarea[name$="txtAnsokanAndraUppgifter"]', "");
-	
+
 	this.echo("\nKontaktpersoner");
 	test.assertExists('input[name$="txtKpers1Funktion"]', "");
 	test.assertExists('input[name$="txtKpers1Namn"]', "");
 	test.assertExists('input[name$="txtKpers1Epost"]', "");
 	test.assertExists('input[name$="txtKpers1Telefon"]', "");
 	test.assertExists('input[name$="txtKpers1Fax"]', "");
-	
+
 	test.assertExists('input[name$="txtKpers2Funktion"]', "");
 	test.assertExists('input[name$="txtKpers2Namn"]', "");
 	test.assertExists('input[name$="txtKpers2Epost"]', "");
 	test.assertExists('input[name$="txtKpers2Telefon"]', "");
 	test.assertExists('input[name$="txtKpers2Fax"]', "");
-	
+
 	test.assertExists('input[name$="txtKpers3Funktion"]', "");
 	test.assertExists('input[name$="txtKpers3Namn"]', "");
 	test.assertExists('input[name$="txtKpers3Epost"]', "");
 	test.assertExists('input[name$="txtKpers3Telefon"]', "");
 	test.assertExists('input[name$="txtKpers3Fax"]', "");
-	
+
 	this.echo("\nInformation till arbetsförmedlingen");
 	test.assertExists('input[name$="txtAfAnnonseraFrom"]', "");
 	test.assertExists('input[name$="txtAfAnnonseraTom"]', "");
 	test.assertExists('textarea[name$="txtAfOvrigaUpplysningar"]', "");
-	
+
 }
 
 function fillFormCorrectly_OnlyMandatory_FilledCorrectly(test) {
@@ -215,7 +215,7 @@ function fillFormCorrectly_OnlyMandatory_FilledCorrectly(test) {
 		'input[name$="txtAfAnnonseraTom"]': '2014-01-31',
 		//'textarea[name$="txtAfOvrigaUpplysningar"]': ''
 	}, false);
-	
+
 	//dropdowns
 	casper.evaluate(function() {
 		document.querySelector('select[name$="ddAnstallningstyp"] option[value="2"]').selected = true; //Sommarjobb / feriejobb
@@ -232,8 +232,8 @@ function rest(test) {
 		return document.querySelector('input[name$="txtSearch"]').value === 'bagare stockholm bar';
 	}, "Texten satt");
 	this.click('input[name$="btnSearch"]');
-	
-	
+
+
 	var rubrik = this.fetchText('span[id$="labelAntalPlatsannonser"]');
 	test.assertMatch(rubrik, /Din sökning på 'bagare stockholm bar' gav \d+ träffar i Sverige och \d+ utomlands/, "Rubriken är hittad");
 	test.assertEval(function() {
