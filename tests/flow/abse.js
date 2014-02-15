@@ -1,9 +1,9 @@
-casper.test.begin('Test suite for aftonbladet.se', function suite(test) {
+casper.test.begin('Test suite for aftonbladet.se', 4, function suite(test) {
   casper.start('http://www.aftonbladet.se', function () {
     test.assertUrlMatch(/^http:\/\/www\.aftonbladet\.se\/$/, 'AB frontpage loaded');
     test.assertVisible('.abSiteNav', 'Navigation element exists');
-    casper.capture('screenshots/abse_frontpage.png');
-    casper.captureSelector('screenshots/abse_navigation.png', '.abSiteNav');
+    // casper.capture('screenshots/abse_frontpage.png');
+    // casper.captureSelector('screenshots/abse_navigation.png', '.abSiteNav');
   });
   casper.then(function () {
     test.assertSelectorHasText('.abSiteNav', 'Sport', 'Navigation has Sport section');

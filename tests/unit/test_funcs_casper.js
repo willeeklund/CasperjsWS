@@ -1,5 +1,4 @@
-var funcs = require("./funcs");
-console.log("funcs:", funcs);
+var funcs = require("../../../modules/funcs.js");
 
 casper.test.begin('assertEquals() tests', 2, function(test) {
   test.assertEquals(2*2, funcs.square(2), "2 square");
