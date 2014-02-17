@@ -250,29 +250,17 @@ casper.start('http://some.tld/contact.form', function() {
       </code></pre>
     </section>
 
+  </section>
+
+  <section>
     <section>
-      <h2>Fill in forms</h2>
-      <pre><code>
-<form action="/contact" id="contact-form">
-  <input type="text" name="name"/>
-  <input type="file" name="attachment"/>
-  <input type="radio" name="civility" value="Mr"/> Mr
-  <input type="radio" name="civility" value="Mrs"/> Mrs
-  <input type="submit"/>
-</form>
-      </code></pre>
-
-      <pre><code>
-casper.start('http://some.tld/contact.form', function() {
-    casper.fill('form#contact-form', {
-        'name':       'Chuck Norris',
-        'civility':   'Mr',
-        'attachment': '/Users/chuck/roundhousekick.doc'
-    }, true);
-});
-      </code></pre>
+      <h2>Writing good tests</h2>
+      <ul class="fragment">
+        <li>What is important?</li>
+        <li>Test functionality, not content</li>
+        <li>Things will change - stay agile</li>
+      </ul>
     </section>
-
   </section>
 
   <section>
